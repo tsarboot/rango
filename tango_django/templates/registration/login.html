@@ -1,0 +1,11 @@
+{% extends "rango/base.html" %} {% block body %}
+<form action="." method="POST">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="LOGIN" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</form>
+<p>
+  Not a member ? what a an idiot
+  <a href="{% url 'registration_register' %}"> REGISTER</a>
+</p>
+{% endblock %}

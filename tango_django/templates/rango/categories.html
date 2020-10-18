@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cars categories</title>
+  </head>
+  <body>
+    <section class="wrapper">
+      <div>
+        <p>thoses are the car's categories</p>
+        {% if category%}
+        <h1>{{ category.name }}</h1>
+        {% if cars %}
+        <ul>
+          {% for car in cars %}
+          <li><a href="{{ car.url }}">{{ car.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <strong>there are no cars available </strong>
+        {% endif %} {% else %} Are you fucking stupid the Category does not
+        exists {% endif %}
+      </div>
+    </section>
+  </body>
+</html>
