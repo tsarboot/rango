@@ -1,16 +1,24 @@
-{% extends 'rango/base.html' %}
 {% load static %}
-{% block title_block %}
-About
-{% endblock title_block %}
-{% block body_block %}
-    {% block H1_block %}
-        THIS IS ABOUT ~~~
-    {% endblock  %}
-    {% block p_block %}
-
-    {% endblock  %}
-    {% block link_block %}
-
-{% endblock  %}
-{% endblock body_block %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="{% static 'js/rango-jquery.js' %}"></script>
+  </head>
+  <body>
+    <button
+      class="btn btn-primary"
+      onClick="alert('You clicked the button using JavaScript.');"
+    >
+      Click Me - I run JavaScript
+    </button>
+    <button class="btn btn-primary" id="about-btn">
+      Click Me - I'm JavaScript on Speed
+    </button>
+    <p>This is a example</p>
+    <p>This is another example</p>
+  </body>
+</html>

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rango.models import Category,Car
 from rango.forms import CategoryForm,CarForm,UserForm,UserProfileForm
+from rango.webhose_search import run_query
 
 # rendering and responding to reqs
 def index(req):
@@ -95,3 +96,14 @@ def register(req):
         profile_form = UserProfileForm()
     context_dict = {'user_form':user_form,'profile_form':profile_form,'registered':registered}
     return render(req,'rango/register.html',context_dict)
+
+#SEARCH API 
+def search(req):
+    results_list = []
+    
+    if req.method == 'POST':
+        query = req.POST['query'].strip()
+        if query:
+            results_list = run_query(query)
+            print(results_list)
+    return render(req,'rango/search.html',{'results_list':results_list})
